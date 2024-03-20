@@ -2,7 +2,44 @@
     ViewData["Title"] = "Home Page";
 }
 
+@model BookListViewModel 
+
+
+
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    
+    <h1>Amazon Lite</h1>
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <td>Title</td>
+            <td>Author</td>
+            <td>Publisher</td>
+            <td>ISBN</td>
+            <td>Category</td>
+            <td>Number of Pages</td>
+            <td>Price</td>
+            <td></td>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (Book b in Model.Books)
+        {
+            <tr>
+                <td>@b.Title</td>
+                <td>@b.Author</td>
+                <td>@b.Publisher</td>
+                <td>@b.Isbn</td>
+                <td>@b.Category</td>
+                <td>@b.PageCount</td>
+                <td>@b.Price</td>
+                <td><button class="btn-info">Buy</button></td>
+            </tr>
+    
+        }
+        </tbody>
+    </table>
 </div>
+
+<div page-model="@Model.PaginationInfo" page-action="Index"></div>
+

@@ -1,7 +1,17 @@
+using AmazonLite.Models;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddDbContext<BookstoreContext>(options =>
+{
+    options.UseSqlite(builder.Configuration["ConnectionStrings:BookStoreConnection"]);
+});
+
+builder.Services.AddScoped<IBookInterface, EFBookRepository>();
 
 var app = builder.Build();
 
