@@ -1,4 +1,5 @@
 using AmazonLite.Models;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -30,8 +31,7 @@ app.UseRouting();
 
 app.UseAuthorization();
 
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+app.MapControllerRoute("pagination", "Projects/{pageNum}", new {Controller = "Home", Action = "Index" });
+app.MapDefaultControllerRoute();
 
 app.Run();

@@ -20,3 +20,52 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.floating-card {
+  box-shadow: 0 0 20px #c7c7c7;
+  border-radius: 20px;
+  margin: 20px;
+  overflow: hidden; /* Add this to prevent the image from spilling out of the card */
+  transition: transform .2s ease-in-out;
+}
+
+.floating-card:hover {
+  transform: scale(1.05);
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  grid-auto-rows: minmax(100px, auto);
+}
+
+.image-holder {
+  height: 200px; /* Set a fixed height for your image */
+  background-size: cover; /* Ensure the image covers the full area */
+  background-position: center; /* Center the image */
+  border-top-left-radius: 20px; /* Match the card's border-radius */
+  border-top-right-radius: 20px; /* Match the card's border-radius */
+}
+
+.text-holder {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.main-button {
+  margin-left: auto; /* This will push the button to the right */
+  padding: 5px 20px 5px 20px;
+  border-radius: 5px;
+  background-color: #0077cc;
+  color: white;
+
+  
+  /* Other styles for your button */
+}
+
+p {
+  margin-bottom: 0px;
+}
+
